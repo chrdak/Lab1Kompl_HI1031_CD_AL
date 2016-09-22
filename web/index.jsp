@@ -8,7 +8,10 @@
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
 <%@ page session="true" %>
 
+
+
 <html>
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <head>
     <title>Login Page$</title>
   </head>
@@ -20,7 +23,7 @@
         <td> Password </td>
             </td><input type = "password" name = "password" value = "" />
         <tr>
-            <td><input type = "submit" value = "Login" />
+            <td><input class="btn btn-submit" type = "submit" value = "Login" />
      </tr>
      </form>
   </body>
