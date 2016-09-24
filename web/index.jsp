@@ -1,4 +1,4 @@
-<%--
+<%@ page import="UI.UserVM" %><%--
   Created by IntelliJ IDEA.
   User: Degern
   Date: 2016-09-21
@@ -10,13 +10,29 @@
 
 
 
+
 <html>
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap-theme.min.css" integrity="sha384-rHyoN1iRsVXV4nD0JutlnGaslCJuC7uwjduW9SVrLvRYooPp2bWYgmgJQIXwl/Sp" crossorigin="anonymous">
   <head>
     <title>Login Page$</title>
   </head>
   <body>
-     <form method="post" action="userLogin.jsp">
+
+  <%
+      String username = request.getParameter("username");
+      String password = request.getParameter("password");
+      if(username != null && password != null) {
+
+          if(UserVM.exists(username, password)) {
+              session.setAttribute("username", username);
+              session.setAttribute("password", password);
+              response.sendRedirect("userLogin.jsp");
+          }
+      }
+  %>
+
+
+     <form method="post" action="index.jsp">
         <td> Name </td>
             <td><input type = "text" name = "username" value = "" />
 

@@ -10,11 +10,11 @@ import java.util.*;
 public class ProductVM {
     private final String name;
 
-    private ProductVM (String name){
+    private ProductVM(String name) {
         this.name = Objects.requireNonNull(name);
     }
 
-    public static ProductVM create(String name){
+    public static ProductVM create(String name) {
         return new ProductVM(name);
     }
 
@@ -29,6 +29,14 @@ public class ProductVM {
             productsVM.add(new ProductVM(e.getName()));
         });
         return Collections.unmodifiableList(productsVM);
+    }
+
+    public static ProductVM getProductByName(String name) {
+        Optional<Product> product = Product.getProductByName(name);
+        if (product.isPresent()) {
+            return new ProductVM(product.get().getName());
+        }
+        return new ProductVM("");
     }
 
     public String toString() {

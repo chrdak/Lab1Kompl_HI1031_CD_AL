@@ -1,11 +1,10 @@
 package BO;
 
-import DB.ProductDAO;
-import UI.ProductVM;
+import DB.ProductDb;
 
-import java.util.ArrayList;
 import java.util.List;
 import java.util.Objects;
+import java.util.Optional;
 
 /**
  * Created by Degern on 2016-09-22.
@@ -29,6 +28,10 @@ public class Product {
     }
 
     public static List<Product> getAllProducts() {
-        return ProductDAO.getAllProducts();
+        return ProductDb.getAllProducts();
+    }
+
+    public static Optional<Product> getProductByName(String name) {
+        return ProductDb.getProductByName(name);
     }
 }
