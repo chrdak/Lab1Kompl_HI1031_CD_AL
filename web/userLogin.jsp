@@ -16,6 +16,12 @@
 </head>
 <body>
 <%
+    String username = (String) session.getAttribute("username");
+    String password = (String) session.getAttribute("password");
+    if (username == null && password == null) {
+        response.sendRedirect("error.jsp");
+    }
+
     Cart cart = (Cart) session.getAttribute("cart");
     if (cart == null) {
         cart = Cart.create();

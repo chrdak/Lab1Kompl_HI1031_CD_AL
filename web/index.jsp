@@ -27,6 +27,8 @@
               session.setAttribute("username", username);
               session.setAttribute("password", password);
               response.sendRedirect("userLogin.jsp");
+          }else {
+              response.sendRedirect("error.jsp");
           }
       }
   %>
@@ -42,5 +44,10 @@
             <td><input class="btn btn-submit" type = "submit" value = "Login" />
      </tr>
      </form>
+
+
+  <form method="post" action="register.jsp">
+          <input class="btn btn-submit" type = "submit" value = "Register" />
+  </form>
   </body>
 </html>

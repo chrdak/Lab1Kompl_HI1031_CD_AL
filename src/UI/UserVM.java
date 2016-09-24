@@ -12,4 +12,9 @@ public class UserVM {
         return User.exists(username,password);
     }
 
+
+    public static boolean createUser(String username, String password){
+        return User.createUser(username, password);
+    }
+
 }

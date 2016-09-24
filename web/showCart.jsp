@@ -19,7 +19,15 @@
 </head>
 <body>
 
-<% Cart cart = (Cart) session.getAttribute("cart"); %>
+<%
+    String username = (String) session.getAttribute("username");
+    String password = (String) session.getAttribute("password");
+    if (username == null && password == null) {
+        response.sendRedirect("error.jsp");
+    }
+
+    Cart cart = (Cart) session.getAttribute("cart");
+%>
 
 <br>
 <% for (int i = 0; i < cart.getCartProducts().size(); i++) { %>

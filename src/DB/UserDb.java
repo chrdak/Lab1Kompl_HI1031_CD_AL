@@ -29,4 +29,22 @@ public class UserDb extends User {
         }
         return false;
     }
+
+    public static boolean createUser(String username, String password){
+
+        if (exists(username, password)) {
+            return false;
+        }
+        try {
+            Statement st = ConnectionManager.getConnection().createStatement();
+            st.execute("INSERT INTO USER(name,password) VALUES('"+ username+"'"
+                    + ",'"  + password+"')");
+            return true;
+        } catch (SQLException e) {
+            e.printStackTrace();
+        }
+        return false;
+    }
+
+
 }

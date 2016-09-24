@@ -28,4 +28,8 @@ public class User {
     public static boolean exists(String username, String password) {
         return UserDb.exists(username,password);
     }
+
+    public static boolean createUser(String username, String password) {
+        return UserDb.createUser(username, password);
+    }
 }
